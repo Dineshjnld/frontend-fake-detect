@@ -1,15 +1,19 @@
 import streamlit as st
 import instaloader
 import numpy as np
-import joblib
+import pickle  # Import pickle instead of joblib
+
 # Load your machine learning model and StandardScaler
 # Assuming 'sc' is the StandardScaler used during training
 # Assuming 'rfc' is the trained Random Forest Classifier
 # Load them as per your actual model loading process
 
 # Placeholder for the machine learning model and StandardScaler
-sc = joblib.load('scaler1.joblib')
-rfc = joblib.load('rfc1.joblib')
+with open('scaler1.pkl', 'rb') as sc_file:
+    sc = pickle.load(sc_file)
+
+with open('rfc1.pkl', 'rb') as rfc_file:
+    rfc = pickle.load(rfc_file)
 
 def fetch_instagram_details(username):
     # Create an Instaloader instance
