@@ -3,12 +3,11 @@ import streamlit as st
 def main():
     st.title("Social Media Analyzer")
 
-    # Sidebar with options
-  st.header("Options")
+    # Options on the main page
     social_media_platform = st.selectbox("Select social media platform", ["Twitter", "Instagram"])
     username = st.text_input("Enter username")
 
-    # Main content
+    # User Information
     st.subheader("User Information")
     st.write(f"Selected Social Media Platform: {social_media_platform}")
     st.write(f"Username: {username}")
