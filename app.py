@@ -9,10 +9,10 @@ import pickle  # Import pickle instead of joblib
 # Load them as per your actual model loading process
 
 # Placeholder for the machine learning model and StandardScaler
-with open('scaler1.pkl', 'rb') as sc_file:
+with open('scaler.pkl', 'rb') as sc_file:
     sc = pickle.load(sc_file)
 
-with open('rfc1.pkl', 'rb') as rfc_file:
+with open('rfc.pkl', 'rb') as rfc_file:
     rfc = pickle.load(rfc_file)
 
 def fetch_instagram_details(username):
