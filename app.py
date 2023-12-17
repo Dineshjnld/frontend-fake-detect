@@ -1,19 +1,21 @@
 import streamlit as st
 import instaloader
 import numpy as np
-import pickle  # Import pickle instead of joblib
+import pickle
+import requests
+from sklearn.ensemble import RandomForestClassifier
 
-# Load your machine learning model and StandardScaler
-# Assuming 'sc' is the StandardScaler used during training
-# Assuming 'rfc' is the trained Random Forest Classifier
-# Load them as per your actual model loading process
+# URLs for the pickled model and scaler
+sc_url = 'https://github.com/Dineshjnld/frontend-fake-detect/raw/main/scaler.pkl'
+rfc_url = 'https://github.com/Dineshjnld/frontend-fake-detect/raw/main/rfc.pkl'
 
-# Placeholder for the machine learning model and StandardScaler
-with open('scaler.pkl', 'rb') as sc_file:
-    sc = pickle.load(sc_file)
+# Fetch StandardScaler
+with requests.get(sc_url, stream=True) as sc_file:
+    sc = pickle.load(sc_file.raw)
 
-with open('rfc.pkl', 'rb') as rfc_file:
-    rfc = pickle.load(rfc_file)
+# Fetch RandomForestClassifier
+with requests.get(rfc_url, stream=True) as rfc_file:
+    rfc = pickle.load(rfc_file.raw)
 
 def fetch_instagram_details(username):
     # Create an Instaloader instance
@@ -72,9 +74,8 @@ def predict_spam(profile_data):
     percentage_value = prob_percentage.item()
     st.write('Probability : {:.0f}%'.format(percentage_value))
 
-
 def main():
-    st.title(" Account Analyzer")
+    st.title("Account Analyzer")
 
     # Select social media platform
     social_media_platform = st.selectbox("Select social media platform", ["Twitter", "Instagram"])
