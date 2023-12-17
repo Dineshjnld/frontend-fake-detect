@@ -10,9 +10,9 @@ def main():
     search_button = st.button("Search")
     predict_button = st.button("Predict")
     # User Information
-    st.subheader("User Information")
-    st.write(f"Selected Social Media Platform: {social_media_platform}")
-    st.write(f"Username: {username}")
+    st.text("User Information")
+    
+    
 
   
 
