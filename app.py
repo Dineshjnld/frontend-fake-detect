@@ -6,15 +6,15 @@ def main():
     # Options on the main page
     social_media_platform = st.selectbox("Select social media platform", ["Twitter", "Instagram"])
     username = st.text_input("Enter username")
-
+  # Buttons
+    search_button = st.button("Search")
+    predict_button = st.button("Predict")
     # User Information
     st.subheader("User Information")
     st.write(f"Selected Social Media Platform: {social_media_platform}")
     st.write(f"Username: {username}")
 
-    # Buttons
-    search_button = st.button("Search")
-    predict_button = st.button("Predict")
+  
 
     # Perform actions based on button clicks
     if search_button:
