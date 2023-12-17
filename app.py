@@ -8,8 +8,8 @@ import numpy as np
 # Load them as per your actual model loading process
 
 # Placeholder for the machine learning model and StandardScaler
-sc = None
-rfc = None
+sc = joblib.load('scaler.joblib')
+rfc = joblib.load('rfc.joblib')
 
 def fetch_instagram_details(username):
     # Create an Instaloader instance
