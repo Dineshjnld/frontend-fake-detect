@@ -1,7 +1,7 @@
 import streamlit as st
 import instaloader
 import numpy as np
-
+import joblib
 # Load your machine learning model and StandardScaler
 # Assuming 'sc' is the StandardScaler used during training
 # Assuming 'rfc' is the trained Random Forest Classifier
