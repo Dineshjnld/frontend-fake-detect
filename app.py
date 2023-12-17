@@ -4,9 +4,9 @@ def main():
     st.title("Social Media Analyzer")
 
     # Sidebar with options
-    st.sidebar.header("Options")
-    social_media_platform = st.sidebar.selectbox("Select social media platform", ["Twitter", "Instagram"])
-    username = st.sidebar.text_input("Enter username")
+  st.header("Options")
+    social_media_platform = st.selectbox("Select social media platform", ["Twitter", "Instagram"])
+    username = st.text_input("Enter username")
 
     # Main content
     st.subheader("User Information")
